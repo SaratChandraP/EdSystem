@@ -1,23 +1,23 @@
 angular.module('todoApp', [])
-  .controller('TestCtrl', function($scope, $http) {
+  .controller('DemoCtrl', function($scope, $http) {
 
-    refreshAllTests();
+    refreshAll();
 
-    $scope.addTest = function(test) {
-      $http.put('/api/test', test).then(function(response) {
-        refreshAllTests();
+    $scope.addTest = function(item) {
+      $http.put('/api/test', item).then(function(response) {
+        refreshAll();
       });
     }
 
       $scope.deleteTest= function(id) {
           $http.delete('/api/test/'+id).then(function(response) {
-              refreshAllTests();
+              refreshAll();
           });
       }
 
-    function refreshAllTests() {
+    function refreshAll() {
       $http.get('/api/test').then(function(response) {
-        $scope.tests= response.data;
+        $scope.items= response.data;
       });      
     }
   });
