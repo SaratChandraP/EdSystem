@@ -1,10 +1,12 @@
 package means.solution;
 
+import java.util.List;
+
 public class Questions {
 
 	public int id;
 	public String question;
-	public String answer;
+	public List<String> answer;
 	
 	public int getId() {
 		return id;
@@ -18,12 +20,14 @@ public class Questions {
 	public void setQuestion(String question) {
 		this.question = question;
 	}
-	public String getAnswer() {
+	public List<String> getAnswer() {
 		return answer;
 	}
-	public void setAnswer(String answer) {
+	public void setAnswer(List<String> answer) {
 		this.answer = answer;
 	}
+	
+	
 	
 	
 }

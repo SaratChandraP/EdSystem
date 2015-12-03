@@ -10,11 +10,13 @@ import means.solution.Questions;
 public class database{
 	
 	static Questions Q1 = new Questions();
+	private static int ansId;
 	
 	public static Questions connect() {
 		try{
 			Class.forName("org.h2.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:h2:"+System.getProperty("user.dir")+"/testdb", "sa", "");  
+//			Connection conn = DriverManager.getConnection("jdbc:h2:"+System.getProperty("user.dir")+"/testdb", "sa", ""); 
+			Connection conn = DriverManager.getConnection("jdbc:h2:"+System.getProperty("user.dir")+"/educationSystem", "sa", "sa");  
 			System.out.println("Connection success");
 			
 			Statement st=conn.createStatement();
@@ -25,19 +27,32 @@ public class database{
 			while(rs.next()){
 				Q1.id = rs.getInt(1);
 				Q1.question = rs.getString(2);
-				Q1.answer = rs.getString(3);
+				
+				Connection conn1 = DriverManager.getConnection("jdbc:h2:"+System.getProperty("user.dir")+"/educationSystem", "sa", "sa");  
+				System.out.println("Connection success");
+				
+				Statement st1=conn1.createStatement();
+				String sql1="select * from answers where questionnum="+Q1.id;
+				System.out.println(sql1);
+				ResultSet rs1 = st1.executeQuery(sql1);
+				while(rs1.next()){
+					System.out.println(rs1.getString(3));
+//					ansId = rs1.getInt(1);
+					Q1.answer.add(rs1.getString(3));
+				}
+				conn1.close();
+				break;
 			}
-//				System.out.println(rs.getInt(1)+"  "+rs.getString(2));
 			
 			conn.close();
 		}
 		
 		catch(Exception e){
 			System.out.println(e);
-			
 		}
-		return Q1;
 		
+		System.out.println(Q1.getQuestion());
+		return Q1;
 	}
 	
 }
