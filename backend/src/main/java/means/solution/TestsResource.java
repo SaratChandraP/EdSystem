@@ -22,30 +22,18 @@ import means.trials.database;
 
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@Path("/tests")
+@Path("/test")
 public class TestsResource
 {
-	private static Map<Integer, List<String>> testMap = new ConcurrentHashMap<>();
-	private static List<String> names = new ArrayList<String>();
+	private static Map<AtomicInteger, Questions> testMap = new ConcurrentHashMap<>();
+//	private static List<String> names = new ArrayList<String>();
 	private static AtomicInteger ID_COUNTER = new AtomicInteger();
 	
 	@GET
-    public Object getQuestions()
+    public Collection<Questions> getQuestions()
     {
-//		testMap.put(ID_COUNTER, database.connect());
-        return database.connect();
-    }
-    
-    @GET
-    @Path("{quesitonId}")
-    public Object get(@PathParam("questionId") int questionId)
-    {
-        List<String> found = testMap.get(questionId);
-        if(found == null)
-        {
-            throw new WebApplicationException(Status.NOT_FOUND);
-        }
-        return found;
+		testMap.put(ID_COUNTER, database.connect());
+		return testMap.values();
     }
         
 }

@@ -7,6 +7,7 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import means.configuration.MeansConfiguration;
 import means.solution.TestResource;
+import means.solution.TestsResource;
 import means.trials.TryHashmap;
 import means.trials.database;
 
@@ -21,7 +22,7 @@ public class MeansApplication extends Application<MeansConfiguration>
     @Override
     public void run(MeansConfiguration configuration, Environment environment)
     {
-        environment.jersey().register(new TestResource());
+        environment.jersey().register(new TestsResource());
     }
     
     @Override
@@ -35,9 +36,10 @@ public class MeansApplication extends Application<MeansConfiguration>
     public static void main(String[] args) throws Exception
     {
     	new MeansApplication().run(args);
-    	database.connect();
-    	Object testnew = TryHashmap.tryHash();
-    	System.out.println(testnew);
+    	Object somename = database.connect();
+    	System.out.println(somename);
+    	//Object testnew = TryHashmap.tryHash();
+    	//System.out.println(testnew);
     }
     
 }
