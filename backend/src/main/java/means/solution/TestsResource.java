@@ -35,5 +35,5 @@ public class TestsResource
 		testMap.put(ID_COUNTER, database.connect());
 		return testMap.values();
     }
-        
+	
 }
