@@ -1,6 +1,8 @@
 package means.solution;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -16,50 +18,34 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response.Status;
 
+import means.trials.database;
+
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @Path("/tests")
 public class TestsResource
 {
-    private static Map<Integer, Test> DATA = new ConcurrentHashMap<>();
-    private static AtomicInteger ID_COUNTER = new AtomicInteger();
-    
-    @PUT
-    public Test create(Test test)
+	private static Map<Integer, List<String>> testMap = new ConcurrentHashMap<>();
+	private static List<String> names = new ArrayList<String>();
+	private static AtomicInteger ID_COUNTER = new AtomicInteger();
+	
+	@GET
+    public Object getQuestions()
     {
-        test.setId(ID_COUNTER.incrementAndGet());
-        DATA.put(test.getId(), test);
-        return test;
+//		testMap.put(ID_COUNTER, database.connect());
+        return database.connect();
     }
     
     @GET
-    public Collection<Test> getTests()
+    @Path("{quesitonId}")
+    public Object get(@PathParam("questionId") int questionId)
     {
-        return DATA.values();
-    }
-    
-    @GET
-    @Path("{testId}")
-    public Test get(@PathParam("testId") int testId)
-    {
-        Test found = DATA.get(testId);
+        List<String> found = testMap.get(questionId);
         if(found == null)
         {
             throw new WebApplicationException(Status.NOT_FOUND);
         }
         return found;
     }
-    
-    @DELETE
-    @Path("{testId}")
-    public void delete(@PathParam("testId") int testId)
-    {
-        Test found = DATA.remove(testId);
-        if(found == null)
-        {
-            throw new WebApplicationException(Status.NOT_FOUND);
-        }
-        return;
-    }
-    
+        
 }
