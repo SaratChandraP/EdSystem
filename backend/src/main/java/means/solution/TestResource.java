@@ -25,24 +25,24 @@ public class TestResource
     private static AtomicInteger ID_COUNTER = new AtomicInteger();
     
     @PUT
-    public Test create(Test note)
+    public Test create(Test test)
     {
-        note.setId(ID_COUNTER.incrementAndGet());
-        DATA.put(note.getId(), note);
-        return note;
+        test.setId(ID_COUNTER.incrementAndGet());
+        DATA.put(test.getId(), test);
+        return test;
     }
     
     @GET
-    public Collection<Test> getNotes()
+    public Collection<Test> getTests()
     {
         return DATA.values();
     }
     
     @GET
-    @Path("{noteId}")
-    public Test get(@PathParam("noteId") int noteId)
+    @Path("{testId}")
+    public Test get(@PathParam("testId") int testId)
     {
-        Test found = DATA.get(noteId);
+        Test found = DATA.get(testId);
         if(found == null)
         {
             throw new WebApplicationException(Status.NOT_FOUND);
@@ -51,10 +51,10 @@ public class TestResource
     }
     
     @DELETE
-    @Path("{noteId}")
-    public void delete(@PathParam("noteId") int noteId)
+    @Path("{testId}")
+    public void delete(@PathParam("testId") int testId)
     {
-        Test found = DATA.remove(noteId);
+        Test found = DATA.remove(testId);
         if(found == null)
         {
             throw new WebApplicationException(Status.NOT_FOUND);

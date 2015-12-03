@@ -1,4 +1,4 @@
-package means.bthwebintro;
+package means.application;
 
 import com.bazaarvoice.dropwizard.assets.ConfiguredAssetsBundle;
 
@@ -33,7 +33,7 @@ public class MeansApplication extends Application<MeansConfiguration>
 
     public static void main(String[] args) throws Exception
     {
-//    	new BTHWebIntroApplication().run(args);
+    	new MeansApplication().run(args);
     	
     	HelloWorld.hello();
     }

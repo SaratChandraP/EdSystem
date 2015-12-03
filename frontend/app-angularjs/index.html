@@ -9,32 +9,32 @@
 		  <div class="container-fluid">
 		    <div class="navbar-header">
 		      <a class="navbar-brand" href="#">
-				Note Demo Application
+				Test Demo Application
 		      </a>
 		    </div>
 		  </div>
 		</nav>
 
-		<div class="container-fluid" ng-controller="NoteCtrl">
-			<div class="col-lg-3 col-md-6" ng-repeat="note in notes">
+		<div class="container-fluid" ng-controller="TestCtrl">
+			<div class="col-lg-3 col-md-6" ng-repeat="test in tests">
 				<div class="panel panel-default">
 				  <div class="panel-heading">
-				    <h3 class="panel-title">{{ note.title }}</h3>
+				    <h3 class="panel-title">{{ test.title }}</h3>
 				  </div>
 				  <div class="panel-body">
-				    {{ note.description }}
+				    {{ test.description }}
 				  </div>
-					<button type="button" class="btn btn-default pull-center" ng-click="deleteNote(note.id);">Delete</button>
+					<button type="button" class="btn btn-default pull-center" ng-click="deleteTest(test.id);">Delete</button>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6">
 				<div class="panel panel-default">
 				  <div class="panel-heading">
-				    <h3 class="panel-title"><input type="text" class="form-control" ng-model="note.title"></h3>
+				    <h3 class="panel-title"><input type="text" class="form-control" ng-model="test.title"></h3>
 				  </div>
-   			      <textarea class="form-control" rows="3" ng-model="note.description"></textarea>    
+   			      <textarea class="form-control" rows="3" ng-model="test.description"></textarea>
 				  <div class="panel-body">
-					<a class="btn btn-default pull-right" ng-click="addNote(note);note={}">Add</a>
+					<a class="btn btn-default pull-right" ng-click="addTest(test);test={}">Add</a>
 				  </div>
 				</div>
 			</div>

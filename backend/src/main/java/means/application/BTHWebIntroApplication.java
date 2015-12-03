@@ -1,4 +1,4 @@
-package means.bthwebintro;
+package means.application;
 
 import com.bazaarvoice.dropwizard.assets.ConfiguredAssetsBundle;
 
