@@ -18,7 +18,7 @@ import javax.ws.rs.core.Response.Status;
 
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@Path("/tests")
+@Path("/test")
 public class TestResource
 {
     private static Map<Integer, Test> DATA = new ConcurrentHashMap<>();
