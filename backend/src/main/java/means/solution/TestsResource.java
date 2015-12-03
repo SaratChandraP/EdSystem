@@ -32,8 +32,24 @@ public class TestsResource
 	@GET
     public Collection<Questions> getQuestions()
     {
+		
 		testMap.put(ID_COUNTER, database.connect());
 		return testMap.values();
+
+//		return database.connect();
+		
+    }
+	
+	@GET
+    @Path("{testId}")
+    public Questions get(@PathParam("testId") int testId)
+    {
+        Questions found = testMap.get(testId);
+        if(found == null)
+        {
+            throw new WebApplicationException(Status.NOT_FOUND);
+        }
+        return found;
     }
 	
 }

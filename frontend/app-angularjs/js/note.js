@@ -18,6 +18,7 @@ angular.module('todoApp', [])
     function refreshAll() {
       $http.get('/api/test').then(function(response) {
         $scope.items= response.data;
+          $scope.answers=response.data.answer;
       });      
     }
   });

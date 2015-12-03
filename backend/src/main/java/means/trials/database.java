@@ -10,7 +10,7 @@ import means.solution.Questions;
 public class database{
 	
 	static Questions Q1 = new Questions();
-	private static int ansId;
+//	private static int ansId;
 	
 	public static Questions connect() {
 		try{
@@ -27,16 +27,15 @@ public class database{
 			while(rs.next()){
 				Q1.id = rs.getInt(1);
 				Q1.question = rs.getString(2);
-				
+				Q1.answer.clear();
 				Connection conn1 = DriverManager.getConnection("jdbc:h2:"+System.getProperty("user.dir")+"/educationSystem", "sa", "sa");  
 				System.out.println("Connection success");
 				
 				Statement st1=conn1.createStatement();
 				String sql1="select * from answers where questionnum="+Q1.id;
-				System.out.println(sql1);
 				ResultSet rs1 = st1.executeQuery(sql1);
 				while(rs1.next()){
-					System.out.println(rs1.getString(3));
+//					System.out.println(rs1.getString(3));
 //					ansId = rs1.getInt(1);
 					Q1.answer.add(rs1.getString(3));
 				}
@@ -51,7 +50,7 @@ public class database{
 			System.out.println(e);
 		}
 		
-		System.out.println(Q1.getQuestion());
+//		System.out.println(Q1.getAnswer());
 		return Q1;
 	}
 	

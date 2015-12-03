@@ -1,12 +1,13 @@
 package means.solution;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Questions {
 
 	public int id;
 	public String question;
-	public List<String> answer;
+	public List<String> answer = new ArrayList<>();
 	
 	public int getId() {
 		return id;
