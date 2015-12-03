@@ -18,14 +18,14 @@ import javax.ws.rs.core.Response.Status;
 
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@Path("/note")
-public class NoteResource
+@Path("/test")
+public class TestResource
 {
-    private static Map<Integer, Note> DATA = new ConcurrentHashMap<>();
+    private static Map<Integer, Test> DATA = new ConcurrentHashMap<>();
     private static AtomicInteger ID_COUNTER = new AtomicInteger();
     
     @PUT
-    public Note create(Note note)
+    public Test create(Test note)
     {
         note.setId(ID_COUNTER.incrementAndGet());
         DATA.put(note.getId(), note);
@@ -33,16 +33,16 @@ public class NoteResource
     }
     
     @GET
-    public Collection<Note> getNotes()
+    public Collection<Test> getNotes()
     {
         return DATA.values();
     }
     
     @GET
     @Path("{noteId}")
-    public Note get(@PathParam("noteId") int noteId)
+    public Test get(@PathParam("noteId") int noteId)
     {
-        Note found = DATA.get(noteId);
+        Test found = DATA.get(noteId);
         if(found == null)
         {
             throw new WebApplicationException(Status.NOT_FOUND);
@@ -54,7 +54,7 @@ public class NoteResource
     @Path("{noteId}")
     public void delete(@PathParam("noteId") int noteId)
     {
-        Note found = DATA.remove(noteId);
+        Test found = DATA.remove(noteId);
         if(found == null)
         {
             throw new WebApplicationException(Status.NOT_FOUND);

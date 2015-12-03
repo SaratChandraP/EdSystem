@@ -1,6 +1,6 @@
 package means.solution;
 
-public class Note
+public class Test
 {
     public int id;
     public String title;

@@ -1,0 +1,55 @@
+<html ng-app="todoApp">
+	<head>
+		<title>Note Application</title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	</head>
+	<body>
+	<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="#">
+				Note Demo Application
+		      </a>
+		    </div>
+		  </div>
+		</nav>
+
+		<div class="container-fluid" ng-controller="NoteCtrl">
+			<div class="col-lg-3 col-md-6" ng-repeat="note in notes">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">{{ note.title }}</h3>
+				  </div>
+				  <div class="panel-body">
+				    {{ note.description }}
+				  </div>
+					<button type="button" class="btn btn-default pull-center" ng-click="deleteNote(note.id);">Delete</button>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title"><input type="text" class="form-control" ng-model="note.title"></h3>
+				  </div>
+   			      <textarea class="form-control" rows="3" ng-model="note.description"></textarea>    
+				  <div class="panel-body">
+					<a class="btn btn-default pull-right" ng-click="addNote(note);note={}">Add</a>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<nav>
+			  <ul class="pager">
+			    <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+			    <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+			  </ul>
+			</nav>
+		</div>
+
+  		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  		<script src="js/note.js"></script>
+  	</body>
+</html>
+
