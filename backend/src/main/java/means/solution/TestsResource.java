@@ -18,8 +18,8 @@ import javax.ws.rs.core.Response.Status;
 
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@Path("/tests")
-public class TestResource
+@Path("/test")
+public class TestsResource
 {
     private static Map<Integer, Test> DATA = new ConcurrentHashMap<>();
     private static AtomicInteger ID_COUNTER = new AtomicInteger();

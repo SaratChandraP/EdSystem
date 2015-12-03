@@ -7,7 +7,7 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import means.configuration.MeansConfiguration;
 import means.solution.TestResource;
-import means.trials.HelloWorld;
+import means.trials.database;
 
 /**
  * Main application class for Web Introduction presentation. Will start dropwizard application server.
@@ -34,8 +34,7 @@ public class MeansApplication extends Application<MeansConfiguration>
     public static void main(String[] args) throws Exception
     {
     	new MeansApplication().run(args);
-    	
-    	HelloWorld.hello();
+    	database.connect();
     }
     
 }
