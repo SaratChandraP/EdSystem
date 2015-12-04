@@ -15,7 +15,8 @@ public class database{
 	public static Questions connect() {
 		try{
 			Class.forName("org.h2.Driver");
-//			Connection conn = DriverManager.getConnection("jdbc:h2:"+System.getProperty("user.dir")+"/testdb", "sa", ""); 
+//			Connection conn = DriverManager.getConnection("jdbc:h2:"+System.getProperty("user.dir")+"/testdb", "sa", "");
+			
 			Connection conn = DriverManager.getConnection("jdbc:h2:"+System.getProperty("user.dir")+"/educationSystem", "sa", "sa");  
 			System.out.println("Connection success");
 			

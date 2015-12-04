@@ -11,11 +11,7 @@ import means.solution.TestsResource;
 import means.trials.TryHashmap;
 import means.trials.database;
 
-/**
- * Main application class for Web Introduction presentation. Will start dropwizard application server.
- * @see <a href="http://www.dropwizard.io/getting-started.html">http://www.dropwizard.io/getting-started.html</a>
- *
- */
+
 public class MeansApplication extends Application<MeansConfiguration>
 {
 
