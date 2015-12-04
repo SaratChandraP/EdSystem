@@ -41,7 +41,7 @@ public class database{
 					Q1.answer.add(rs1.getString(3));
 				}
 				conn1.close();
-				break;
+//				break;
 			}
 			
 			conn.close();

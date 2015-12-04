@@ -28,7 +28,4 @@ public class Questions {
 		this.answer = answer;
 	}
 	
-	
-	
-	
 }

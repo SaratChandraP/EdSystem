@@ -44,6 +44,7 @@ public class TestsResource
     @Path("{testId}")
     public Questions get(@PathParam("testId") int testId)
     {
+		testMap.put(ID_COUNTER, database.connect());
         Questions found = testMap.get(testId);
         if(found == null)
         {
