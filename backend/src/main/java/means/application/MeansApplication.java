@@ -8,8 +8,8 @@ import io.dropwizard.setup.Environment;
 import means.configuration.MeansConfiguration;
 import means.solution.TestResource;
 import means.solution.TestsResource;
-import means.trials.TryHashmap;
-import means.trials.database;
+import means.solution.TryHashmap;
+import means.solution.database;
 
 
 public class MeansApplication extends Application<MeansConfiguration>

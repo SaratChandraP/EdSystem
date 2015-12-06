@@ -1,11 +1,9 @@
-package means.trials;
+package means.solution;
 
 import java.sql.*;
 //import org.h2.jdbcx.JdbcDataSource;
 import java.util.ArrayList;
 import java.util.List;
-
-import means.solution.Questions;
 
 public class database{
 	

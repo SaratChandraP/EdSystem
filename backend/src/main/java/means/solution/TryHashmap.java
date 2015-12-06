@@ -1,4 +1,4 @@
-package means.trials;
+package means.solution;
 
 import java.util.ArrayList;
 import java.util.List;
