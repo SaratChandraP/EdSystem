@@ -3,6 +3,7 @@ package means.solution;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -58,7 +59,7 @@ public class TestsResource
 				Questions Q1 = new Questions();
 				Q1.setId(rs.getInt(1));
 				Q1.setQuestion(rs.getString(2));
-				Q1.answer.clear();
+//				Q1.answer.clear();
 
 				Statement st1=conn.createStatement();
 				String sql1="select * from answers where questionnum="+Q1.id;
@@ -67,7 +68,6 @@ public class TestsResource
 				while(rs1.next())
 					Q1.addAnswer(rs1.getString(3));
 
-//				conn1.close();
 				testMap.put(i++, Q1);
 				}
 			conn.close();
@@ -79,6 +79,25 @@ public class TestsResource
 //		System.out.println(testMap.toString());
 		return testMap.values();
     }
+	
+	@GET
+	@Path("{questionId}")
+	public Questions get(@PathParam("questionId") int id) throws SQLException{
+		
+		Questions Q = new Questions();
+		ResultSet rs=DB.execute("select * from questions where questionnum="+id);
+		
+		while(rs.next()){
+			Q.setId(rs.getInt(1));
+			Q.setQuestion(rs.getString(2));
+			
+			ResultSet rs1=DB.execute("select * from answers where questionnum="+Q.getId());
+			while(rs1.next())
+				Q.addAnswer(rs1.getString(3));
+
+		}
+		return Q;
+	}
 	
 /*	@GET
     @Path("{testId}")
