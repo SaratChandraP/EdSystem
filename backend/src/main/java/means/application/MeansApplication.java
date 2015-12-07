@@ -6,7 +6,6 @@ import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import means.configuration.MeansConfiguration;
-import means.solution.TestResource;
 import means.solution.TestsResource;
 import means.solution.TryHashmap;
 import means.solution.database;

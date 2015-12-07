@@ -27,5 +27,8 @@ public class Questions {
 	public void setAnswer(List<String> answer) {
 		this.answer = answer;
 	}
+	public void addAnswer(String answer) {
+		this.answer.add(answer);
+	}
 	
 }

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -27,31 +28,35 @@ import javax.ws.rs.core.Response.Status;
 @Path("/test")
 public class TestsResource
 {
-	private static Map<AtomicInteger, Questions> testMap = new ConcurrentHashMap<>();
+	private static Map<Integer, Questions> testMap = new ConcurrentHashMap<>();
 //	private static List<String> names = new ArrayList<String>();
-	private static AtomicInteger ID_COUNTER = new AtomicInteger();
+	
+	@PUT
+    public void create(Questions question)
+    {
+        
+    }
 	
 	@GET
     public Collection<Questions> getQuestions()
     {
-		
-/*		testMap.put(ID_COUNTER, database.connect());
-		System.out.println(ID_COUNTER.incrementAndGet());
-*/		
 		try{
 			Class.forName("org.h2.Driver");
 		
 			Connection conn = DriverManager.getConnection("jdbc:h2:"+System.getProperty("user.dir")+"/educationSystem", "sa", "sa");  
-			System.out.println("Connection success");
+			System.out.println(conn);
 			
 			Statement st=conn.createStatement();
 			String sql="select * from questions";
 			ResultSet rs=st.executeQuery(sql);
+
+			
+			int i=0;
 			
 			while(rs.next()){
 				Questions Q1 = new Questions();
-				Q1.id = rs.getInt(1);
-				Q1.question = rs.getString(2);
+				Q1.setId(rs.getInt(1));
+				Q1.setQuestion(rs.getString(2));
 				Q1.answer.clear();
 
 				Connection conn1 = DriverManager.getConnection("jdbc:h2:"+System.getProperty("user.dir")+"/educationSystem", "sa", "sa");  
@@ -60,11 +65,10 @@ public class TestsResource
 				ResultSet rs1 = st1.executeQuery(sql1);
 
 				while(rs1.next())
-					Q1.answer.add(rs1.getString(3));
+					Q1.addAnswer(rs1.getString(3));
 
 				conn1.close();
-				testMap.put(ID_COUNTER, Q1);
-				ID_COUNTER.incrementAndGet();
+				testMap.put(i, Q1);
 				}
 			conn.close();
 		}
@@ -72,11 +76,11 @@ public class TestsResource
 		catch(Exception e){
 			System.out.println(e);
 		}
-		
+		System.out.println(testMap.toString());
 		return testMap.values();
     }
 	
-	@GET
+/*	@GET
     @Path("{testId}")
     public Questions get(@PathParam("testId") int testId)
     {
@@ -87,6 +91,12 @@ public class TestsResource
             throw new WebApplicationException(Status.NOT_FOUND);
         }
         return found;
-    }
+    }	
 	
+	@DELETE
+	@Path("{qId}")
+	public void delete(@PathParam("qId") int qId){
+		
+	}
+*/	
 }
