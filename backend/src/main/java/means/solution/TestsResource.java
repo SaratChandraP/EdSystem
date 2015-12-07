@@ -43,13 +43,14 @@ public class TestsResource
 		try{
 			Class.forName("org.h2.Driver");
 		
-			Connection conn = DriverManager.getConnection("jdbc:h2:"+System.getProperty("user.dir")+"/educationSystem", "sa", "sa");  
+//			Connection conn = DriverManager.getConnection("jdbc:h2:"+System.getProperty("user.dir")+"/educationSystem", "sa", "sa");  
+			Connection conn = DriverManager.getConnection("jdbc:h2:./educationSystem", "sa", "sa");  
+			
 			System.out.println(conn);
 			
 			Statement st=conn.createStatement();
 			String sql="select * from questions";
 			ResultSet rs=st.executeQuery(sql);
-
 			
 			int i=0;
 			
@@ -59,16 +60,15 @@ public class TestsResource
 				Q1.setQuestion(rs.getString(2));
 				Q1.answer.clear();
 
-				Connection conn1 = DriverManager.getConnection("jdbc:h2:"+System.getProperty("user.dir")+"/educationSystem", "sa", "sa");  
-				Statement st1=conn1.createStatement();
+				Statement st1=conn.createStatement();
 				String sql1="select * from answers where questionnum="+Q1.id;
 				ResultSet rs1 = st1.executeQuery(sql1);
 
 				while(rs1.next())
 					Q1.addAnswer(rs1.getString(3));
 
-				conn1.close();
-				testMap.put(i, Q1);
+//				conn1.close();
+				testMap.put(i++, Q1);
 				}
 			conn.close();
 		}
@@ -76,7 +76,7 @@ public class TestsResource
 		catch(Exception e){
 			System.out.println(e);
 		}
-		System.out.println(testMap.toString());
+//		System.out.println(testMap.toString());
 		return testMap.values();
     }
 	
