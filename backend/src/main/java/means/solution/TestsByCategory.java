@@ -25,12 +25,11 @@ public class TestsByCategory
 	@GET
     public Collection<Questions> getQuestions() throws SQLException
     {
-		Connection connection = null;
+		Connection connection = DriverManager.getConnection("jdbc:h2:./educationSystem", "sa", "sa");
 		Statement statement;
 		
 		try{
 //			Connection conn = DriverManager.getConnection("jdbc:h2:"+System.getProperty("user.dir")+"/educationSystem", "sa", "sa");  
-			connection = DriverManager.getConnection("jdbc:h2:./educationSystem", "sa", "sa");  
 				
 			System.out.println(connection);
 				
@@ -57,6 +56,7 @@ public class TestsByCategory
 		}
 		finally{
 			if(connection != null) connection.close();
+			System.out.println("Finally "+connection);
 		}
 
 		return questions.values();

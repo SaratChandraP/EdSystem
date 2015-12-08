@@ -8,9 +8,10 @@ import java.sql.Statement;
 public class DB {
 	
 	public static Connection connect(String db) {
+		
+		
 		try{
-			Class.forName("org.h2.Driver");
-			
+						
 			Connection conn = DriverManager.getConnection("jdbc:h2:./"+db, "sa", "sa");
 			
 			return conn;
