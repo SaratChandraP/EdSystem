@@ -50,7 +50,6 @@ public class TestsResource
 				Questions Q1 = new Questions();
 				Q1.setId(rs.getInt(1));
 				Q1.setQuestion(rs.getString(2));
-//				Q1.answer.clear();
 
 				Statement st1=conn.createStatement();
 				String sql1="select * from answers where questionnum="+Q1.id;
