@@ -10,7 +10,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -18,57 +17,49 @@ import javax.ws.rs.core.MediaType;
 
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@Path("/test")
-public class TestsResource
+@Path("/category")
+public class TestsByCategory
 {
-	private static Map<Integer, Questions> testMap = new ConcurrentHashMap<>();
-	
-	@PUT
-    public void create(Questions question)
-    {
-        
-    }
+	private static Map<Integer, Questions> questions = new ConcurrentHashMap<>();
 	
 	@GET
-    public Collection<Questions> getQuestions()
+    public Collection<Questions> getQuestions() throws SQLException
     {
-		try{
-			Class.forName("org.h2.Driver");
+		Connection connection = null;
+		Statement statement;
 		
+		try{
 //			Connection conn = DriverManager.getConnection("jdbc:h2:"+System.getProperty("user.dir")+"/educationSystem", "sa", "sa");  
-			Connection conn = DriverManager.getConnection("jdbc:h2:./educationSystem", "sa", "sa");  
-			
-			System.out.println(conn);
-			
-			Statement st=conn.createStatement();
+			connection = DriverManager.getConnection("jdbc:h2:./educationSystem", "sa", "sa");  
+				
+			System.out.println(connection);
+				
+			statement=connection.createStatement();
 			String sql="select * from questions";
-			ResultSet rs=st.executeQuery(sql);
-			
+			ResultSet rs=statement.executeQuery(sql);
+				
 			int i=0;
-			
+				
 			while(rs.next()){
 				Questions Q1 = new Questions();
 				Q1.setId(rs.getInt(1));
 				Q1.setQuestion(rs.getString(2));
-//				Q1.answer.clear();
 
-				Statement st1=conn.createStatement();
+				Statement st1=connection.createStatement();
 				String sql1="select * from answers where questionnum="+Q1.id;
 				ResultSet rs1 = st1.executeQuery(sql1);
 
 				while(rs1.next())
 					Q1.addAnswer(rs1.getString(3));
-
-				testMap.put(i++, Q1);
+				
+				questions.put(i++, Q1);
 				}
-			conn.close();
 		}
-		
-		catch(Exception e){
-			System.out.println(e);
+		finally{
+			if(connection != null) connection.close();
 		}
-//		System.out.println(testMap.toString());
-		return testMap.values();
+
+		return questions.values();
     }
 	
 	@GET
@@ -88,5 +79,5 @@ public class TestsResource
 
 		}
 		return Q;
-	}
+	}	
 }

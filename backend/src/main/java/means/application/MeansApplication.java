@@ -6,9 +6,7 @@ import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import means.configuration.MeansConfiguration;
-import means.solution.TestsResource;
-import means.solution.TryHashmap;
-import means.solution.database;
+import means.solution.*;
 
 
 public class MeansApplication extends Application<MeansConfiguration>
@@ -18,6 +16,7 @@ public class MeansApplication extends Application<MeansConfiguration>
     public void run(MeansConfiguration configuration, Environment environment)
     {
         environment.jersey().register(new TestsResource());
+        environment.jersey().register(new TestsByCategory());
     }
     
     @Override
