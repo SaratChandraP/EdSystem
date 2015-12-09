@@ -3,9 +3,9 @@ angular.module('testApp', [])
     .controller('stageController',function($scope) {
         $scope.pw1 = 'password';
     })
-    .directive('pwCheck', [function () {
+    .directive('pwCheck', function () {
         return {
-            //restrict: 'A',
+            restrict: 'A',
             require: 'ngModel',
             link: function (scope, elem, attrs, ctrl) {
                 var firstPassword = '#' + attrs.pwCheck;
@@ -18,7 +18,7 @@ angular.module('testApp', [])
                 });
             }
         }
-    }])
+    })
     .directive('pwVerify', function () {
     return {
         require: 'ngModel',

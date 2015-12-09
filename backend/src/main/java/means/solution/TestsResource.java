@@ -75,7 +75,9 @@ public class TestsResource
 	public Questions get(@PathParam("questionId") int id) throws SQLException{
 		
 		Questions Q = new Questions();
+//		String sql = "";
 		ResultSet rs=DB.execute("select * from questions where questionnum="+id);
+//"select * from questions join answers on questions.questionnum=answers.questionnum where questionnum="
 		
 		while(rs.next()){
 			Q.setId(rs.getInt(1));

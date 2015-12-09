@@ -3,43 +3,24 @@ package means.solution;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DB {
 	
-	public static Connection connect(String db) {
-		
-		try{
-						
-			Connection conn = DriverManager.getConnection("jdbc:h2:./"+db, "sa", "sa");
-			
-			return conn;
-		}
-		catch(Exception e){
-			System.out.println(e);
-		}
-		return null;
-	}
-	
-	public static ResultSet execute(String sql) {
-		try{
-			Class.forName("org.h2.Driver");
-			
-			Connection conn = DriverManager.getConnection("jdbc:h2:./educationSystem", "sa", "sa");
+	public static ResultSet execute(String sql) throws SQLException {
+		Connection conn = DriverManager.getConnection("jdbc:h2:./educationSystem", "sa", "sa");
 
+		try{
 			Statement st=conn.createStatement();
-//			String sql="select * from questions";
-			ResultSet rs=st.executeQuery(sql);
-			
-			System.out.println(conn);
+			try{
+				ResultSet rs=st.executeQuery(sql);
+				return rs;
+			}finally{
+//				st.close();
+			}
+		}finally{
 //			conn.close();
-			return rs;
 		}
-		
-		catch(Exception e){
-			System.out.println(e);
-		}
-		return null;
-		
 	}
 }	

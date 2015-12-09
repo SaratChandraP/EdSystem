@@ -56,7 +56,6 @@ public class TestsByCategory
 		}
 		finally{
 			if(connection != null) connection.close();
-			System.out.println("Finally "+connection);
 		}
 
 		return questions.values();
@@ -64,20 +63,24 @@ public class TestsByCategory
 	
 	@GET
 	@Path("{questionId}")
-	public Questions get(@PathParam("questionId") int id) throws SQLException{
+	public Questions get(@PathParam("questionId") String id) throws SQLException{
 		
 		Questions Q = new Questions();
-		ResultSet rs=DB.execute("select * from questions where questionnum="+id);
+		String sql="select * from questions where questionnum=";
+//		String sql="select q1.questionnum, q1.question, answers.answer from (select * from questions where questionnum=1)q1 join answers on q1.questionnum=answers.questionnum";
 		
+		ResultSet rs=DB.execute(sql+id);
+				
 		while(rs.next()){
 			Q.setId(rs.getInt(1));
 			Q.setQuestion(rs.getString(2));
 			
-			ResultSet rs1=DB.execute("select * from answers where questionnum="+Q.getId());
+			ResultSet rs1=DB.execute("select * from answers where questionnum="+id);
 			while(rs1.next())
 				Q.addAnswer(rs1.getString(3));
-
+			rs1.close();
 		}
+		rs.close();
 		return Q;
 	}	
 }
