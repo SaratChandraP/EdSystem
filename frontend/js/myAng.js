@@ -12,6 +12,4 @@ angular.module('myJS',[])
     .controller('myCtrl2', function($scope){
         $scope.num = 4357;
     })
-
-
 ;
