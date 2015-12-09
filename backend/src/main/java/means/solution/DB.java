@@ -9,7 +9,6 @@ public class DB {
 	
 	public static Connection connect(String db) {
 		
-		
 		try{
 						
 			Connection conn = DriverManager.getConnection("jdbc:h2:./"+db, "sa", "sa");
