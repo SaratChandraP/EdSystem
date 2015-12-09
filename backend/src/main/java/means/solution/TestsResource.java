@@ -30,15 +30,12 @@ public class TestsResource
     }
 	
 	@GET
-    public Collection<Questions> getQuestions()
+    public Collection<Questions> getQuestions() throws SQLException
     {
-		try{
-			Class.forName("org.h2.Driver");
+		Connection conn = DriverManager.getConnection("jdbc:h2:./educationSystem", "sa", "sa");  
 		
+		try{
 //			Connection conn = DriverManager.getConnection("jdbc:h2:"+System.getProperty("user.dir")+"/educationSystem", "sa", "sa");  
-			Connection conn = DriverManager.getConnection("jdbc:h2:./educationSystem", "sa", "sa");  
-			
-			System.out.println(conn);
 			
 			Statement st=conn.createStatement();
 			String sql="select * from questions";
@@ -61,19 +58,21 @@ public class TestsResource
 				testMap.put(i++, Q1);
 				}
 			conn.close();
+		}finally{
+			conn.close();
 		}
-		
+		/*
 		catch(Exception e){
 			System.out.println(e);
 		}
-//		System.out.println(testMap.toString());
+		System.out.println(testMap.toString());*/
 		return testMap.values();
     }
 	
 	@GET
 	@Path("{questionId}")
-	public Questions get(@PathParam("questionId") int id) throws SQLException{
-		
+	public Questions get(@PathParam("questionId") String id) throws SQLException
+	{
 		Questions Q = new Questions();
 //		String sql = "";
 		ResultSet rs=DB.execute("select * from questions where questionnum="+id);
@@ -86,7 +85,6 @@ public class TestsResource
 			ResultSet rs1=DB.execute("select * from answers where questionnum="+Q.getId());
 			while(rs1.next())
 				Q.addAnswer(rs1.getString(3));
-
 		}
 		return Q;
 	}

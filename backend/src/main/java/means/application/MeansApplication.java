@@ -30,10 +30,6 @@ public class MeansApplication extends Application<MeansConfiguration>
     public static void main(String[] args) throws Exception
     {
     	new MeansApplication().run(args);
-//    	Object somename = database.connect();
-//    	System.out.println(somename);
-    	//Object testnew = TryHashmap.tryHash();
-    	//System.out.println(testnew);
     }
     
 }
