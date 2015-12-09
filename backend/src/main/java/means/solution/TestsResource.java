@@ -10,7 +10,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -22,13 +21,7 @@ import javax.ws.rs.core.MediaType;
 public class TestsResource
 {
 	private static Map<Integer, Questions> testMap = new ConcurrentHashMap<>();
-	
-	@PUT
-    public void create(Questions question)
-    {
-        
-    }
-	
+		
 	@GET
     public Collection<Questions> getQuestions() throws SQLException
     {
@@ -61,11 +54,8 @@ public class TestsResource
 		}finally{
 			conn.close();
 		}
-		/*
-		catch(Exception e){
-			System.out.println(e);
-		}
-		System.out.println(testMap.toString());*/
+
+//		System.out.println(testMap.toString());
 		return testMap.values();
     }
 	
