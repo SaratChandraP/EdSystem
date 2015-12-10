@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="./js/test.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -40,21 +41,21 @@
     <h1 class="text-center">Welcome to the SoftHouse Education System</h1>
 </div>
 
-<div class="container">
+<div class="container" ng-controller="DemoCtrl">
     <form class="form-horizontal">
         <fieldset>
             <!-- Form Name -->
             <legend>Test 1</legend>
 
             <!-- Multiple Radios (inline) -->
-            <div class="control-group">
-                <label class="control-label" for="question1">1. Question </label>
-                <div class="controls">
+            <div class="control-group" ng-repeat="item in items">
+                <label class="control-label" for="question1"> {{item.id}}. {{item.question}} </label>
+                <div class="controls" ng-repeat="answers in item.answer">
                     <label class="radio" for="question1-0">
                         <input name="question1" id="question1-0" value="Very satisfied" type="radio">
-                        Option 1
+                        {{answers}}
                     </label>
-                    <label class="radio" for="question1-1">
+                    <!--<label class="radio" for="question1-1">
                         <input name="question1" id="question1-1" value="Satisfied" type="radio">
                         Option 2
                     </label>
@@ -65,15 +66,22 @@
                     <label class="radio" for="question1-3">
                         <input name="question1" id="question1-3" value="Insatified" type="radio">
                         Option 4
-                    </label>
+                    </label>-->
                 </div>
             </div>
 
             <!-- Textarea -->
-            <div class="control-group">
+            <!--<div class="control-group">
                 <label class="control-label" for="question2">2.Which reasons you are not totaly satisfied, or insatisfied about your cooperation with GET WIRELESS?</label>
                 <div class="controls">
                     <textarea id="question2" name="question2"></textarea>
+                </div>
+            </div>-->
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="submitTest">Submit Test</label>
+                <div class="col-md-4">
+                    <button id="submitTest" name="submitTest" class="btn btn-primary">Button</button>
                 </div>
             </div>
 

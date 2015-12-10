@@ -1,9 +1,10 @@
 angular.module('todoApp', [])
   .controller('DemoCtrl', function($scope, $http) {
+      $scope.xyz="sarat";
 
-    refreshAll();
+      refreshAll();
 
-    $scope.addTest = function(item) {
+      $scope.addTest = function(item) {
       $http.put('/api/test', item).then(function(response) {
         refreshAll();
       });
