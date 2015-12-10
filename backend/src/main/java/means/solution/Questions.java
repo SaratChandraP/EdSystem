@@ -8,6 +8,7 @@ public class Questions {
 	public int id;
 	public String question;
 	public List<String> answer = new ArrayList<>();
+//	public ArrayList<String> answer;
 	
 	public int getId() {
 		return id;
@@ -24,11 +25,10 @@ public class Questions {
 	public List<String> getAnswer() {
 		return answer;
 	}
-	public void setAnswer(List<String> answer) {
+	public void setAnswer(ArrayList<String> answer) {
 		this.answer = answer;
 	}
 	public void addAnswer(String answer) {
 		this.answer.add(answer);
 	}
-	
 }

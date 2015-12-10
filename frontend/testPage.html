@@ -8,13 +8,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="./js/note.js"></script>
 
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
 <div class="page-header text-center">
     <h1><img align="center" src="img/softhouse.JPG"> <small>Your complete software partner</small></h1>
 </div>
+
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header col-sm-2">
@@ -37,13 +40,15 @@
         </div>
     </div>
 </nav>
+
 <div class="ContentDesc">
     <h1 class="text-center">Welcome to the SoftHouse Education System</h1>
 </div>
+
 <div class="container">
     <div class="row content">
         <div class="col-sm-2 sidenav">
-            <p></p>
+
         </div>
         <div class="col-sm-8 text-left">
             <div class="container-fluid"  ng-controller="DemoCtrl">
@@ -62,9 +67,6 @@
                                         </label>
                                     </li>
                                 </ul>
-                                <!--<label ng-repeat="n in item.answer">
-                                    <input type="radio" ng-value="{{n}}"> {{n}}
-                                </label>-->
                             </div>
                             <!--<button type="button" class="btn btn-default pull-center" ng-click="deleteTest(item.id);">Delete</button>-->
                             <button type="submit" class="btn btn-default pull-center" disabled> Submit </button>
@@ -72,21 +74,8 @@
                     </div>
                 </div>
 
-                <!--			<div class="col-lg-3 col-md-6">
-                                <div class="panel panel-default">
-                                  <div class="panel-heading">
-                                    <h3 class="panel-title"><input type="text" class="form-control" ng-model="test.question"></h3>
-                                  </div>
-                                     <textarea class="form-control" rows="3" ng-model="test.answer"></textarea>
-                                  <div class="panel-body">
-                                    <a class="btn btn-default pull-right" ng-click="addTest(test);test={}">Add</a>
-                                  </div>
-                                </div>
-                            </div>-->
-
             </div>
-            <!--<h3>Test</h3>-->
-            <!--<p>Main layout...</p>-->
+
         </div>
     </div>
 

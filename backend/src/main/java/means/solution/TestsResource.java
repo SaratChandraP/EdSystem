@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -25,11 +27,10 @@ public class TestsResource
 	@GET
     public Collection<Questions> getQuestions() throws SQLException
     {
-		Connection conn = DriverManager.getConnection("jdbc:h2:./educationSystem", "sa", "sa");  
+		Connection conn = DriverManager.getConnection("jdbc:h2:./educationSystem", "sa", "sa");
+		// can use System.getProperty("user.dir") for project dir
 		
 		try{
-//			Connection conn = DriverManager.getConnection("jdbc:h2:"+System.getProperty("user.dir")+"/educationSystem", "sa", "sa");  
-			
 			Statement st=conn.createStatement();
 			String sql="select * from questions";
 			ResultSet rs=st.executeQuery(sql);
@@ -52,7 +53,7 @@ public class TestsResource
 				}
 			conn.close();
 		}finally{
-			conn.close();
+//			conn.close();
 		}
 
 //		System.out.println(testMap.toString());
@@ -64,7 +65,6 @@ public class TestsResource
 	public Questions get(@PathParam("questionId") String id) throws SQLException
 	{
 		Questions Q = new Questions();
-//		String sql = "";
 		ResultSet rs=DB.execute("select * from questions where questionnum="+id);
 //"select * from questions join answers on questions.questionnum=answers.questionnum where questionnum="
 		
@@ -77,5 +77,16 @@ public class TestsResource
 				Q.addAnswer(rs1.getString(3));
 		}
 		return Q;
+	}
+	
+	@POST
+	@Path("{questionId}")
+	public void answered(@PathParam("questionId") String id, Map<String, String> qTest){
+			System.out.println(qTest.toString()+id);
+	}
+	
+	@PUT
+	public void addQuestion(Questions question){
+		System.out.println(question.getAnswer());
 	}
 }

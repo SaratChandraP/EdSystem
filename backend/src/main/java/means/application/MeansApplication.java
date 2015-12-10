@@ -25,8 +25,6 @@ public class MeansApplication extends Application<MeansConfiguration>
         bootstrap.addBundle(new ConfiguredAssetsBundle("/assets/", "/", "index.html"));
     }
     
-
-
     public static void main(String[] args) throws Exception
     {
     	new MeansApplication().run(args);
