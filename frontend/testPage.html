@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html ng-app="todoApp">
 <head>
     <title>Education System</title>
     <meta charset="utf-8">
@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -45,7 +46,7 @@
             <p></p>
         </div>
         <div class="col-sm-8 text-left">
-            <div class="container-fluid" ng-controller="DemoCtrl">
+            <div class="container-fluid"  ng-controller="DemoCtrl">
                 <div class="col-lg-3 col-md-6" ng-repeat="item in items">
                     <div class="panel panel-default">
                         <form action="#" method="post">
@@ -96,5 +97,6 @@
         © Team M.E.A.N.S, Education System (2015-2016)
     </div>
 </nav>
+<script src="js/note.js"></script>
 </body>
 </html>
