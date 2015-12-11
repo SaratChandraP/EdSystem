@@ -5,7 +5,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import javax.ws.rs.Consumes;
@@ -72,17 +74,23 @@ public class TestsResource
 			Q.setId(rs.getInt(1));
 			Q.setQuestion(rs.getString(2));
 			
+			ArrayList<String> ans = new ArrayList<>();
 			ResultSet rs1=DB.execute("select * from answers where questionnum="+Q.getId());
 			while(rs1.next())
-				Q.addAnswer(rs1.getString(3));
+				ans.add(rs1.getString(3));
+			
+			Q.setAnswer(ans);
 		}
 		return Q;
 	}
 	
 	@POST
 	@Path("{questionId}")
-	public void answered(@PathParam("questionId") String id, Map<String, String> qTest){
+//	public void answered(@PathParam("questionId") String id, Map<String, List<String>> qTest){
+	public void answered(@PathParam("questionId") String id, Questions qTest){
 			System.out.println(qTest.toString()+id);
+			System.out.println(id+"  "+qTest.getAnswer());
+			
 	}
 	
 	@PUT
