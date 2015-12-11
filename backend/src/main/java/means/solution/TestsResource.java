@@ -51,9 +51,9 @@ public class TestsResource
 
 				testMap.put(i++, Q1);
 				}
-			conn.close();
-		}finally{
 //			conn.close();
+		}finally{
+			conn.close();
 		}
 
 //		System.out.println(testMap.toString());
@@ -83,7 +83,7 @@ public class TestsResource
 	@Path("/new")
 //	public void answered(@PathParam("questionId") String id, Questions qTest){
 	public void answered(Questions qTest){
-			System.out.println(qTest.getFullQuestion());
+		System.out.println(qTest.getFullQuestion());
 	}
 	
 	@PUT
