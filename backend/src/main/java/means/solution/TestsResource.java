@@ -81,8 +81,10 @@ public class TestsResource
 	}
 	
 	@POST
-	@Path("{questionId}")
-	public void answered(@PathParam("questionId") String id, Questions qTest){
+//	@Path("{questionId}")
+	@Path("/new")
+//	public void answered(@PathParam("questionId") String id, Questions qTest){
+	public void answered(Questions qTest){
 			System.out.println(qTest.getFullQuestion());
 	}
 	
