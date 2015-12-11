@@ -53,14 +53,14 @@
 
             <!-- Multiple Radios (inline) -->
             <div class="control-group" ng-repeat="item in items">
-                <label class="control-label" for="question1"> {{item.id}}. {{item.question}} </label>
+                <label class="control-label" for="question{{item.id}}"> {{item.id}}. {{item.question}} </label>
                 <div class="controls" ng-repeat="answers in item.answer">
-                    <label class="radio" for="question1-0">
-                        <input name="question1" id="question1-0" value="Very satisfied" type="radio">
+                    <label class="radio" for="question{{item.id}}-0">
+                        <input name="question1" id="question{{item.id}}-0" value="{{answers}}" type="radio">
                         {{answers}}
                     </label>
                 </div>
-
+                <br>
             </div>
 
             <!-- Textarea -->
