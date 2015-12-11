@@ -68,7 +68,6 @@ public class TestsResource
 	{
 		Questions Q = new Questions();
 		ResultSet rs=DB.execute("select * from questions where questionnum="+id);
-//"select * from questions join answers on questions.questionnum=answers.questionnum where questionnum="
 		
 		while(rs.next()){
 			Q.setId(rs.getInt(1));
@@ -83,15 +82,12 @@ public class TestsResource
 	
 	@POST
 	@Path("{questionId}")
-//	public void answered(@PathParam("questionId") String id, Map<String, List<String>> qTest){
 	public void answered(@PathParam("questionId") String id, Questions qTest){
-			System.out.println(qTest.toString()+id);
-			System.out.println(id+"  "+qTest.getAnswer());
-			
+			System.out.println(qTest.getFullQuestion());
 	}
 	
 	@PUT
 	public void addQuestion(Questions question){
-		System.out.println(question.getAnswer());
+		System.out.println(question.getFullQuestion());
 	}
 }
