@@ -11,7 +11,6 @@ import means.solution.*;
 
 public class MeansApplication extends Application<MeansConfiguration>
 {
-
     @Override
     public void run(MeansConfiguration configuration, Environment environment)
     {
