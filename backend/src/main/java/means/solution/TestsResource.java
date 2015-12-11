@@ -74,12 +74,9 @@ public class TestsResource
 			Q.setId(rs.getInt(1));
 			Q.setQuestion(rs.getString(2));
 			
-			ArrayList<String> ans = new ArrayList<>();
 			ResultSet rs1=DB.execute("select * from answers where questionnum="+Q.getId());
 			while(rs1.next())
-				ans.add(rs1.getString(3));
-			
-			Q.setAnswer(ans);
+				Q.addAnswer(rs1.getString(3));
 		}
 		return Q;
 	}

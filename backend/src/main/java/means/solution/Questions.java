@@ -7,9 +7,7 @@ public class Questions {
 
 	public int id;
 	public String question;
-//	public List<String> answer = new ArrayList<>();
-	public ArrayList<String> answer = new ArrayList<>();
-//	public ArrayList<String> answer;
+	public List<String> answer = new ArrayList<>();
 	
 	public int getId() {
 		return id;
