@@ -1,5 +1,5 @@
-<!doctype html>
-<html ng-app="todoApp">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Education System</title>
     <meta charset="utf-8">
@@ -8,10 +8,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="js/test.js"></script>
+    <script src="./js/test.js"></script>
     <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
+
+<body ng-app="todoApp">
+
 <div class="page-header text-center">
     <h1><img align="center" src="img/softhouse.JPG"> <small>Your complete software partner</small></h1>
 </div>
@@ -30,8 +32,6 @@
                 <li role="presentation"><a href="#">About</a></li>
                 <li role="presentation"><a href="#">Careers</a></li>
                 <li role="presentation"><a href="#">Contact</a></li>
-                <!--</ul>-->
-                <!--<ul class="nav nav-pills navbar-right">-->
                 <li class="navbar-right"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
         </div>
@@ -40,43 +40,55 @@
 <div class="ContentDesc">
     <h1 class="text-center">Welcome to the SoftHouse Education System</h1>
 </div>
-<div class="container">
-    <div class="row content">
+
+<div class="container" ng-controller="DemoCtrl">
+
         <div class="col-sm-2 sidenav">
         </div>
-        <div class="col-sm-8 text-left">
-            <div class="container-fluid"  ng-controller="DemoCtrl">
-                <div class="col-lg-3 col-md-6" ng-repeat="item in items">
-                    <div class="panel panel-default">
-                        <form action="#" method="post">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">{{item.id + ". " + item.question }}</h3>
-                            </div>
-                            <div class="panel-options">
-                                <ul style="list-style-type: none">
-                                    <li ng-repeat="options in item.answer">
-                                        <label>
-                                            <!--<input type="checkbox" ng-value="{{options}}"> {{options}}-->
-                                            <input type="radio" ng-value="{{options}}"> {{options}}
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--<button type="button" class="btn btn-default pull-center" ng-click="deleteTest(item.id);">Delete</button>-->
-                            <button type="submit" class="btn btn-default pull-center" disabled> Submit </button>
-                        </form>
-                    </div>
+        <form class="form-horizontal row">
+
+        <fieldset>
+            <!-- Form Name -->
+            <legend align="top">Test 1</legend>
+
+            <!-- Multiple Radios (inline) -->
+            <div class="control-group" ng-repeat="item in items">
+                <label class="control-label" for="question1"> {{item.id}}. {{item.question}} </label>
+                <div class="controls" ng-repeat="answers in item.answer">
+                    <label class="radio" for="question1-0">
+                        <input name="question1" id="question1-0" value="Very satisfied" type="radio">
+                        {{answers}}
+                    </label>
+                </div>
+
+            </div>
+
+            <!-- Textarea -->
+            <!--<div class="control-group">
+                <label class="control-label" for="question2">2.Which reasons you are not totaly satisfied, or insatisfied about your cooperation with GET WIRELESS?</label>
+                <div class="controls">
+                    <textarea id="question2" name="question2"></textarea>
+                </div>
+            </div>-->
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="submitTest"></label>
+                <div class="col-md-4">
+                    <button id="submitTest"  class="btn btn-primary">Submit</button>
                 </div>
             </div>
-        </div>
-    </div>
+
+        </fieldset>
+    </form>
+
 </div>
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <!--<div class="container-fluid text-center"></div>-->
-    <div class="container text-center container-fluid">
-        © Team M.E.A.N.S, Education System (2015-2016)
-    </div>
-</nav>
-<script src="js/test.js"></script>
+
+
+<!--<footer class="navbar navbar-default navbar-fixed-bottom">-->
+    <!--&lt;!&ndash;<div class="container-fluid text-center"></div>&ndash;&gt;-->
+    <!--<div class="container text-center container-fluid">-->
+        <!--© Team M.E.A.N.S, Education System (2015-2016)-->
+    <!--</div>-->
+<!--</footer>-->
 </body>
 </html>
