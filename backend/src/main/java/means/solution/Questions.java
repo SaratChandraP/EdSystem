@@ -30,4 +30,7 @@ public class Questions {
 	public void addAnswer(String answer) {
 		this.answer.add(answer);
 	}
+	public String getFullQuestion() {
+		return this.id+" "+this.question+" "+this.answer;
+	}
 }
