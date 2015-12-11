@@ -185,3 +185,9 @@ footer {
     bottom:0;
     width:100%;
 }
+fieldset{
+    /*border: 1px solid rgb(255,232,57);*/
+    margin-left:50px ;
+    /*width: 400px;*/
+    /*margin:auto;*/
+}

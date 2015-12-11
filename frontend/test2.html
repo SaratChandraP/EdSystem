@@ -42,10 +42,14 @@
 </div>
 
 <div class="container" ng-controller="DemoCtrl">
-    <form class="form-horizontal">
+
+        <div class="col-sm-2 sidenav">
+        </div>
+        <form class="form-horizontal row">
+            <legend align="top">Test 1</legend>
         <fieldset>
             <!-- Form Name -->
-            <legend>Test 1</legend>
+
 
             <!-- Multiple Radios (inline) -->
             <div class="control-group" ng-repeat="item in items">
@@ -55,6 +59,7 @@
                         <input name="question1" id="question1-0" value="Very satisfied" type="radio">
                         {{answers}}
                     </label>
+
                     <!--<label class="radio" for="question1-1">
                         <input name="question1" id="question1-1" value="Satisfied" type="radio">
                         Option 2
@@ -68,6 +73,7 @@
                         Option 4
                     </label>-->
                 </div>
+
             </div>
 
             <!-- Textarea -->
@@ -79,9 +85,9 @@
             </div>-->
 
             <div class="form-group">
-                <label class="col-md-4 control-label" for="submitTest">Submit Test</label>
+                <label class="col-md-4 control-label" for="submitTest"></label>
                 <div class="col-md-4">
-                    <button id="submitTest" name="submitTest" class="btn btn-primary">Submit</button>
+                    <button id="submitTest"  class="btn btn-primary">Submit</button>
                 </div>
             </div>
 
@@ -91,11 +97,11 @@
 </div>
 
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <!--<div class="container-fluid text-center"></div>-->
-    <div class="container text-center container-fluid">
-        © Team M.E.A.N.S, Education System (2015-2016)
-    </div>
-</nav>
+<!--<footer class="navbar navbar-default navbar-fixed-bottom">-->
+    <!--&lt;!&ndash;<div class="container-fluid text-center"></div>&ndash;&gt;-->
+    <!--<div class="container text-center container-fluid">-->
+        <!--© Team M.E.A.N.S, Education System (2015-2016)-->
+    <!--</div>-->
+<!--</footer>-->
 </body>
 </html>
