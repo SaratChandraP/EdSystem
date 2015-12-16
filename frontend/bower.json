@@ -1,0 +1,21 @@
+{
+  "name": "frontend",
+  "description": "EdSystem frontend",
+  "main": "index.html",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "authors": [
+    "Sarat Chandra"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

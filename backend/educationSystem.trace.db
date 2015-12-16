@@ -625,3 +625,234 @@ select q1.questionnum, q1.question, a1.answer from (select * from questions wher
 	at org.h2.server.web.WebThread.process(WebThread.java:164)
 	at org.h2.server.web.WebThread.run(WebThread.java:89)
 	at java.lang.Thread.run(Unknown Source)
+2015-12-16 11:25:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT TOP *[*] FROM QUESTIONS "; expected "SELECT, FROM"; SQL statement:
+SELECT TOP * FROM questions [42001-190]
+2015-12-16 11:27:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO QUESTIONS VALUES (3, WHERE[*] ARE YOU FROM, GENERAL) "; expected "), DEFAULT, NOT, EXISTS, INTERSECTS, SELECT, FROM"; SQL statement:
+insert into questions values (3, Where are you from, general) [42001-190]
+2015-12-16 11:28:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "Where are you from" not found; SQL statement:
+insert into questions values (3, "Where are you from", "general") [42122-190]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.command.dml.Insert.prepare(Insert.java:270)
+	at org.h2.command.Parser.prepareCommand(Parser.java:246)
+	at org.h2.engine.Session.prepareLocal(Session.java:460)
+	at org.h2.engine.Session.prepareCommand(Session.java:402)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2015-12-16 11:31:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DESC[*] QUESTIONS "; expected "DELETE, DROP, DECLARE, DEALLOCATE, {"; SQL statement:
+desc questions [42001-190]
+2015-12-16 11:31:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "EXPLAIN QUESTIONS[*] "; expected "ANALYZE, PLAN, SELECT, FROM, (, DELETE, UPDATE, INSERT, MERGE, WITH"; SQL statement:
+explain questions [42001-190]
+2015-12-16 11:33:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Unknown data type: "QUESTIONNUM"; SQL statement:
+alter table questions alter questionnum questionnum int(10) NOT NULL AUTO_INCREMENT PRIMARY [50004-190]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:4009)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:3872)
+	at org.h2.command.Parser.parseAlterTableAlterColumnType(Parser.java:5535)
+	at org.h2.command.Parser.parseAlterTable(Parser.java:5527)
+	at org.h2.command.Parser.parseAlter(Parser.java:4762)
+	at org.h2.command.Parser.parsePrepared(Parser.java:331)
+	at org.h2.command.Parser.parse(Parser.java:304)
+	at org.h2.command.Parser.parse(Parser.java:276)
+	at org.h2.command.Parser.prepareCommand(Parser.java:241)
+	at org.h2.engine.Session.prepareLocal(Session.java:460)
+	at org.h2.engine.Session.prepareCommand(Session.java:402)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2015-12-16 11:33:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Unknown data type: "QUESTIONNUM"; SQL statement:
+alter table questions alter questionnum questionnum int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY [50004-190]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:4009)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:3872)
+	at org.h2.command.Parser.parseAlterTableAlterColumnType(Parser.java:5535)
+	at org.h2.command.Parser.parseAlterTable(Parser.java:5527)
+	at org.h2.command.Parser.parseAlter(Parser.java:4762)
+	at org.h2.command.Parser.parsePrepared(Parser.java:331)
+	at org.h2.command.Parser.parse(Parser.java:304)
+	at org.h2.command.Parser.parse(Parser.java:276)
+	at org.h2.command.Parser.prepareCommand(Parser.java:241)
+	at org.h2.engine.Session.prepareLocal(Session.java:460)
+	at org.h2.engine.Session.prepareCommand(Session.java:402)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2015-12-16 11:34:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE QUESTIONS ALTER QUESTIONNUM INT(10) NOT NULL AUTO_INCREMENT PRIMARY[*] KEY "; SQL statement:
+alter table questions alter questionnum int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY [42000-190]
+2015-12-16 11:34:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE QUESTIONS CHANGE QUESTIONNUM QUESTIONNUM INT(10) NOT NULL AUTO_INCREMENT PRIMARY[*] KEY "; SQL statement:
+alter table questions change questionnum questionnum int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY [42000-190]
+2015-12-16 11:35:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Unknown data type: ; SQL statement:
+alter table questions alter QUESTIONNUM [50004-190]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:4009)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:3872)
+	at org.h2.command.Parser.parseAlterTableAlterColumnType(Parser.java:5535)
+	at org.h2.command.Parser.parseAlterTable(Parser.java:5527)
+	at org.h2.command.Parser.parseAlter(Parser.java:4762)
+	at org.h2.command.Parser.parsePrepared(Parser.java:331)
+	at org.h2.command.Parser.parse(Parser.java:304)
+	at org.h2.command.Parser.parse(Parser.java:276)
+	at org.h2.command.Parser.prepareCommand(Parser.java:241)
+	at org.h2.engine.Session.prepareLocal(Session.java:460)
+	at org.h2.engine.Session.prepareCommand(Session.java:402)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2015-12-16 11:37:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE QUESTIONS ALTER COLUMN 'QUESTIONNUM'[*] 'QUESTIONNUM ' AUTO_INCREMENT "; expected "identifier"; SQL statement:
+alter table QUESTIONS alter column 'QUESTIONNUM' 'QUESTIONNUM ' AUTO_INCREMENT [42001-190]
+2015-12-16 11:38:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE QUESTIONS ALTER COLUMN 'QUESTIONNUM'[*]  QUESTIONNUM INT(10) AUTO_INCREMENT=1 "; expected "identifier"; SQL statement:
+alter table QUESTIONS alter column 'QUESTIONNUM'  QUESTIONNUM int(10) AUTO_INCREMENT=1 [42001-190]
+2015-12-16 11:38:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Unknown data type: "TO"; SQL statement:
+alter table QUESTIONS alter column QUESTIONNUM to QUESTIONNUM int(10) AUTO_INCREMENT=1 [50004-190]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:4009)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:3872)
+	at org.h2.command.Parser.parseAlterTableAlterColumnType(Parser.java:5535)
+	at org.h2.command.Parser.parseAlterTable(Parser.java:5527)
+	at org.h2.command.Parser.parseAlter(Parser.java:4762)
+	at org.h2.command.Parser.parsePrepared(Parser.java:331)
+	at org.h2.command.Parser.parse(Parser.java:304)
+	at org.h2.command.Parser.parse(Parser.java:276)
+	at org.h2.command.Parser.prepareCommand(Parser.java:241)
+	at org.h2.engine.Session.prepareLocal(Session.java:460)
+	at org.h2.engine.Session.prepareCommand(Session.java:402)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2015-12-16 11:38:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Unknown data type: "AUTO_INCREMENT"; SQL statement:
+alter table QUESTIONS alter column QUESTIONNUM AUTO_INCREMENT=5 [50004-190]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:4009)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:3872)
+	at org.h2.command.Parser.parseAlterTableAlterColumnType(Parser.java:5535)
+	at org.h2.command.Parser.parseAlterTable(Parser.java:5527)
+	at org.h2.command.Parser.parseAlter(Parser.java:4762)
+	at org.h2.command.Parser.parsePrepared(Parser.java:331)
+	at org.h2.command.Parser.parse(Parser.java:304)
+	at org.h2.command.Parser.parse(Parser.java:276)
+	at org.h2.command.Parser.prepareCommand(Parser.java:241)
+	at org.h2.engine.Session.prepareLocal(Session.java:460)
+	at org.h2.engine.Session.prepareCommand(Session.java:402)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2015-12-16 11:38:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ALTER TABLE QUESTIONS ALTER COLUMN QUESTIONNUM INT(10)AUTO_INCREMENT=[*]5 "; SQL statement:
+alter table QUESTIONS alter column QUESTIONNUM int(10)AUTO_INCREMENT=5 [42000-190]
+2015-12-16 11:39:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SHOW COLUMNS QUESTIONS[*] "; expected "FROM"; SQL statement:
+show columns QUESTIONS [42001-190]
+2015-12-16 11:40:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column count does not match; SQL statement:
+insert into questions values ('what comes after monday', 'general') [21002-190]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.command.dml.Insert.prepare(Insert.java:265)
+	at org.h2.command.Parser.prepareCommand(Parser.java:246)
+	at org.h2.engine.Session.prepareLocal(Session.java:460)
+	at org.h2.engine.Session.prepareCommand(Session.java:402)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2015-12-16 11:41:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO QUESTIONS VALUES ( ,[*]'xyz','general') "; expected "), DEFAULT, NOT, EXISTS, INTERSECTS, SELECT, FROM"; SQL statement:
+insert into questions values ( ,'xyz','general') [42001-190]
+2015-12-16 11:43:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column count does not match; SQL statement:
+insert into questions values ( 'abc','general') [21002-190]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.command.dml.Insert.prepare(Insert.java:265)
+	at org.h2.command.Parser.prepareCommand(Parser.java:246)
+	at org.h2.engine.Session.prepareLocal(Session.java:460)
+	at org.h2.engine.Session.prepareCommand(Session.java:402)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
