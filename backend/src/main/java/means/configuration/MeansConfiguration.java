@@ -8,6 +8,7 @@ import com.bazaarvoice.dropwizard.assets.AssetsConfiguration;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.dropwizard.Configuration;
+import io.dropwizard.db.DataSourceFactory;
 
 public class MeansConfiguration extends Configuration implements AssetsBundleConfiguration{
 	@Valid
@@ -20,4 +21,14 @@ public class MeansConfiguration extends Configuration implements AssetsBundleCon
     {
       return assets;
     }
+    
+    @Valid
+    @NotNull
+    @JsonProperty
+    private DataSourceFactory database = new DataSourceFactory();
+
+    public DataSourceFactory getDataSourceFactory() {
+        return database;
+    }
+    
 }

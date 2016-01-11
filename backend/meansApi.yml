@@ -7,3 +7,38 @@ logging:
 assets:
   overrides:
     /: ../frontend/
+    
+# Database settings
+database:
+
+  # the name of the JDBC driver
+  driverClass: org.h2.Driver
+
+  # the username
+  user: sa
+
+  # the password
+  password: sa
+  
+  # the JDBC URL
+  #url: jdbc:postgresql://localhost/se3800
+  url: jdbc:h2:./educationSystem
+
+  # any properties specific to your JDBC driver:
+  properties:
+    charSet: UTF-8
+
+  # the maximum amount of time to wait on an empty pool before throwing an exception
+  maxWaitForConnection: 1s
+
+  # the SQL query to run when validating a connection's liveness
+  #validationQuery: "/* MyService Health Check */ SELECT 1"
+
+  # the minimum number of connections to keep open
+  minSize: 8
+
+  # the maximum number of connections to keep open
+  maxSize: 32
+
+  # whether or not idle connections should be validated
+  checkConnectionWhileIdle: true
