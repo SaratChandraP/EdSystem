@@ -1,4 +1,4 @@
-package means.solution;
+package means.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

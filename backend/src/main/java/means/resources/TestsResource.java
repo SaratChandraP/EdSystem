@@ -1,4 +1,4 @@
-package means.solution;
+package means.resources;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,6 +16,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+
+import means.core.Questions;
+import means.db.DB;
 
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
