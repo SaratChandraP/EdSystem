@@ -1,4 +1,4 @@
-package means.configuration;
+package means.application;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
