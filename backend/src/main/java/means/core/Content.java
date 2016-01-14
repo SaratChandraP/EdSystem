@@ -23,10 +23,6 @@ public class Content {
     private String description;
 
     @JsonProperty
-    @NotEmpty
-    private String video;
-
-    @JsonProperty
     @Min(0)
     @Max(5)
     private double rating;
@@ -57,14 +53,6 @@ public class Content {
         this.description = description;
     }
 
-    public String getVideo() {
-        return video;
-    }
-
-    public void setVideo(String video) {
-        this.video = video;
-    }
-
     public double getRating() {
         return rating;
     }
@@ -75,7 +63,7 @@ public class Content {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, description, video, rating);
+        return Objects.hash(id, title, description, rating);
     }
 
     @Override
@@ -92,7 +80,6 @@ public class Content {
         return Objects.equals(id, that.id) &&
                 Objects.equals(title, that.title) &&
                 Objects.equals(description, that.description) &&
-                Objects.equals(video, that.video) &&
                 Objects.equals(rating, that.rating);
     }
 

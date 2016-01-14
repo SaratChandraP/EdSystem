@@ -14,7 +14,6 @@ import redis.clients.jedis.JedisPool;
 /**
  * The Session Data Access Object contains methods for accessing and modifying
  * sessions stored in Redis.
- *
  */
 public class SessionDao {
     

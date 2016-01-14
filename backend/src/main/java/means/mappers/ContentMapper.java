@@ -15,7 +15,6 @@ public class ContentMapper implements ResultSetMapper<Content> {
         content.setId(r.getString("id"));
         content.setTitle(r.getString("title"));
         content.setDescription(r.getString("description"));
-        content.setVideo(r.getString("video"));
         content.setRating(r.getDouble("rating"));
         return content;
     }
