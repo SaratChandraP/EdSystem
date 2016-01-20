@@ -1,7 +1,5 @@
 angular.module('todoApp', [])
   .controller('DemoCtrl', function($scope, $http) {
-      $scope.xyz="sarat";
-
       refreshAll();
 
       $scope.addTest = function(item) {
