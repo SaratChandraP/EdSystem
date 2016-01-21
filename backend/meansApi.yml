@@ -22,7 +22,8 @@ database:
   
   # the JDBC URL
   #url: jdbc:postgresql://localhost/se3800
-  url: jdbc:h2:./educationSystem
+  #url: jdbc:h2:./educationSystem
+  url: jdbc:h2:./edSystem
 
   # any properties specific to your JDBC driver:
   properties:
