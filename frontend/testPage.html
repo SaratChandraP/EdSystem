@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body ng-app="todoApp">
+<body ng-app="questionsApp">
 
 <div class="page-header text-center">
     <h1><img align="center" src="img/softhouse.JPG"> <small>Your complete software partner</small></h1>
@@ -43,7 +43,7 @@
     <h1 class="text-center">Welcome to the SoftHouse Education System</h1>
 </div>
 
-<div class="container" ng-controller="DemoCtrl">
+<div class="container" ng-controller="questionsCtrl">
 
         <div class="col-sm-2 sidenav">
         </div>
@@ -53,10 +53,10 @@
             <!-- Form Name -->
             <legend align="top">Test 1</legend>
 
-            <div class="control-group" ng-controller="DemoCtrl">
+            <div class="control-group">
             <!-- Multiple Radios (inline) -->
             <div class="control-group">
-                <label class="control-label"   > {{items[j].id}}. {{items[j].question}} </label>
+                <label class="control-label" for="question{{items[j].id}}-0"  > {{items[j].id}}. {{items[j].question}} </label>
                 <div class="controls" ng-repeat="answers in items[0].answer">
                     <label class="radio" >
                         <input name="question{{items[j].id}}" id="question{{items[j].id}}-0" value="{{answers}}" type="radio">{{answers}}
