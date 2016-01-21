@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.dropwizard.Configuration;
 import io.dropwizard.db.DataSourceFactory;
+import io.dropwizard.server.SimpleServerFactory;
 
 public class MeansConfiguration extends Configuration implements AssetsBundleConfiguration{
 	@Valid
@@ -22,11 +23,25 @@ public class MeansConfiguration extends Configuration implements AssetsBundleCon
       return assets;
     }
     
+    /**
+     * Constructs a new SE3800Configuration.
+     */
+    public MeansConfiguration() {
+        setServerFactory(new SimpleServerFactory());
+    }
+    
+    /**
+     * Container for the database configuration.
+     */
     @Valid
     @NotNull
     @JsonProperty
     private DataSourceFactory database = new DataSourceFactory();
 
+    /**
+     * @return the container with the database information
+     */
+    @JsonProperty("database")
     public DataSourceFactory getDataSourceFactory() {
         return database;
     }

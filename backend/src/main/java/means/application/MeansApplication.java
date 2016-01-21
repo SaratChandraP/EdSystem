@@ -6,10 +6,12 @@ import com.bazaarvoice.dropwizard.assets.ConfiguredAssetsBundle;
 
 import io.dropwizard.Application;
 import io.dropwizard.jdbi.DBIFactory;
+import io.dropwizard.jdbi.bundles.DBIExceptionsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import means.config.MeansConfiguration;
 import means.db.QuestionsDao;
+import means.resources.QuestionsResource;
 import means.resources.TestsByCategory;
 import means.resources.TestsResource;
 
@@ -34,6 +36,7 @@ public class MeansApplication extends Application<MeansConfiguration>
          */
         environment.jersey().register(new TestsResource());
         environment.jersey().register(new TestsByCategory());
+        environment.jersey().register(new QuestionsResource(qDao));
         
         /*
          * Add Providers
@@ -54,6 +57,7 @@ public class MeansApplication extends Application<MeansConfiguration>
     @Override
     public void initialize(Bootstrap<MeansConfiguration> bootstrap)
     {
+    	bootstrap.addBundle(new DBIExceptionsBundle());
         bootstrap.addBundle(new ConfiguredAssetsBundle("/assets/", "/", "index.html"));
     }
     

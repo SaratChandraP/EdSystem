@@ -12,8 +12,12 @@ public class QuestionsMapper implements ResultSetMapper<Questions>{
 	
 	public Questions map(int id, ResultSet rs, StatementContext ctx) throws SQLException {
 		Questions question = new Questions();
-		question.setId(rs.getInt(1));
-		question.setQuestion(rs.getString(2));
+		question.setId(rs.getInt("questionnum"));
+		question.setQuestion(rs.getString("question"));
+		question.setOption1(rs.getString("option1"));
+		question.setOption2(rs.getString("option2"));
+		question.setOption3(rs.getString("option3"));
+		question.setOption4(rs.getString("option4"));
 //		question.setAnswer(answer);
 		
 		return question;
