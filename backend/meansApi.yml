@@ -26,8 +26,6 @@ database:
   password: sa
   
   # the JDBC URL
-  #url: jdbc:postgresql://localhost/se3800
-  #url: jdbc:h2:file:~/Documents/GitHub/EdSystem/backend/educationSystem
   url: jdbc:h2:file:./edSystem
 
   # any properties specific to your JDBC driver:

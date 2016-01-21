@@ -9,6 +9,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="./js/test.js"></script>
+    <script src="./js/nextQuestion.js"></script>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -52,19 +53,25 @@
             <!-- Form Name -->
             <legend align="top">Test 1</legend>
 
-            <div class="control-group" ng-repeat="item in items">
+            <div class="control-group" ng-controller="DemoCtrl">
             <!-- Multiple Radios (inline) -->
             <div class="control-group">
-                <label class="control-label" for="question{{item.id}}-0"> {{item.id}}. {{item.question}} </label>
-                <div class="controls" ng-repeat="answers in item.answer">
-                    <label class="radio" for="question{{item.id}}-0">
-                        <input name="question{{item.id}}" id="question{{item.id}}-0" value="{{answers}}" type="radio">{{answers}}
+                <label class="control-label"   > {{items[j].id}}. {{items[j].question}} </label>
+                <div class="controls" ng-repeat="answers in items[0].answer">
+                    <label class="radio" >
+                        <input name="question{{items[j].id}}" id="question{{items[j].id}}-0" value="{{answers}}" type="radio">{{answers}}
                     </label>
-                </div>
-                <br>
-            </div>
 
+                </div>
             </div>
+                <br><button id="next" ng-click="myFunction()"  class="btn btn-primary">Next Question</button><br>
+                </div>
+            <!--<br><button id="next" ng-click="myFunction()"  class="btn btn-primary">Next Question</button><br>-->
+                <br>
+                <!--<div class="col-md-4">-->
+
+                <!--</div>-->
+
 
             <!-- Textarea -->
             <!--<div class="control-group">
