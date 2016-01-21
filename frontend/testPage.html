@@ -9,7 +9,6 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="./js/test.js"></script>
-    <script src="./js/nextQuestion.js"></script>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -53,25 +52,34 @@
             <!-- Form Name -->
             <legend align="top">Test 1</legend>
 
+            {{c}}
+
             <div class="control-group">
             <!-- Multiple Radios (inline) -->
-            <div class="control-group">
-                <label class="control-label" for="question{{items[j].id}}-0"  > {{items[j].id}}. {{items[j].question}} </label>
-                <div class="controls" ng-repeat="answers in items[0].answer">
-                    <label class="radio" >
-                        <input name="question{{items[j].id}}" id="question{{items[j].id}}-0" value="{{answers}}" type="radio">{{answers}}
-                    </label>
+                <div class="control-group">
+                    <label class="control-label" for="question{{questionnum}}">  {{questionSingle.id}}. {{questionSingle.question}} </label>
+                    <div class="controls">
+                        <label class="radio" for="question{{questionnum}}-1">
+                            <input name="question{{questionnum}}-1" id="question{{questionnum}}-1" value="{{questionSingle.option2}}" type="radio"> {{questionSingle.option1}}
+                        </label>
 
+                        <label class="radio" for="question{{questionnum}}-2">
+                            <input name="question{{questionnum}}-2" id="question{{questionnum}}-2" value="{{questionSingle.option2}}" type="radio"> {{questionSingle.option2}}
+                        </label>
+
+                        <label class="radio" for="question{{questionnum}}-3">
+                            <input name="question{{questionnum}}-3" id="question{{questionnum}}-3" value="{{questionSingle.option3}}" type="radio"> {{questionSingle.option3}}
+                        </label>
+
+                        <label class="radio" for="question{{questionnum}}-4">
+                            <input name="question{{questionnum}}-4" id="question{{questionnum}}-4" value="{{questionSingle.option4}}" type="radio"> {{questionSingle.option4}}
+                        </label>
+                    </div>
                 </div>
-            </div>
-                <br><button id="next" ng-click="myFunction()"  class="btn btn-primary">Next Question</button><br>
-                </div>
-            <!--<br><button id="next" ng-click="myFunction()"  class="btn btn-primary">Next Question</button><br>-->
                 <br>
-                <!--<div class="col-md-4">-->
-
-                <!--</div>-->
-
+                <button id="next" ng-click="myFunction()"  class="btn btn-primary">Next Question</button>
+                <br>
+            </div>
 
             <!-- Textarea -->
             <!--<div class="control-group">
