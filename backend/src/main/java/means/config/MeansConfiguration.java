@@ -24,7 +24,7 @@ public class MeansConfiguration extends Configuration implements AssetsBundleCon
     }
     
     /**
-     * Constructs a new SE3800Configuration.
+     * Constructs a new edSystemConfiguration.
      */
     public MeansConfiguration() {
         setServerFactory(new SimpleServerFactory());
@@ -37,9 +37,10 @@ public class MeansConfiguration extends Configuration implements AssetsBundleCon
     @NotNull
     @JsonProperty
     private DataSourceFactory database = new DataSourceFactory();
+    
 
     /**
-     * @return the container with the database information
+     * Return the container with the database information
      */
     @JsonProperty("database")
     public DataSourceFactory getDataSourceFactory() {

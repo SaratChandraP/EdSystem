@@ -1,10 +1,15 @@
 package means.resources;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import com.codahale.metrics.annotation.ExceptionMetered;
+import com.codahale.metrics.annotation.Timed;
 
+import means.core.Questions;
 import means.db.QuestionsDao;
 
 @Path("/questions")
@@ -17,4 +22,20 @@ public class QuestionsResource {
 	public QuestionsResource(QuestionsDao qDao){
 		this.qDao = qDao;
 	}
+	
+	@GET
+    public Questions getAll() {
+        Questions questionsAll = qDao.retrieveAll();
+        return questionsAll;
+    }
+
+	@GET
+	@Path("/{id}")
+	@Timed
+	@ExceptionMetered
+	public Questions getById(@PathParam("id") String id) {
+		Questions existingContent = qDao.retrieveById(id);
+		return existingContent;
+	}
+	
 }

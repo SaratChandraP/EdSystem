@@ -1,5 +1,10 @@
 server:
   rootPath: '/api/*'
+  type: simple
+  connector:
+    type: http   # alternatives are http
+    port: 8080     # alternatives are 8080
+  applicationContextPath: /
   
 logging:
    level: INFO
@@ -22,8 +27,8 @@ database:
   
   # the JDBC URL
   #url: jdbc:postgresql://localhost/se3800
-  #url: jdbc:h2:./educationSystem
-  url: jdbc:h2:./edSystem
+  #url: jdbc:h2:file:~/Documents/GitHub/EdSystem/backend/educationSystem
+  url: jdbc:h2:file:./edSystem
 
   # any properties specific to your JDBC driver:
   properties:

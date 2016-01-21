@@ -10,7 +10,10 @@ import means.mappers.QuestionsMapper;
 @RegisterMapper(QuestionsMapper.class)
 public interface QuestionsDao {
 	
-	@SqlQuery("select * from questions where questionnum= :id")
+	@SqlQuery("select * from questions where id= :id")
 	public Questions retrieveById(@Bind("id") String id);
+
+	@SqlQuery("select * from questions")
+	public Questions retrieveAll();
 
 }

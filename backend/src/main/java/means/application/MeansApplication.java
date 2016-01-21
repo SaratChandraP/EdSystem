@@ -11,9 +11,7 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import means.config.MeansConfiguration;
 import means.db.QuestionsDao;
-import means.resources.QuestionsResource;
-import means.resources.TestsByCategory;
-import means.resources.TestsResource;
+import means.resources.*;
 
 public class MeansApplication extends Application<MeansConfiguration>
 {
@@ -24,7 +22,7 @@ public class MeansApplication extends Application<MeansConfiguration>
          * JDBI
          */
         final DBIFactory factory = new DBIFactory();
-        final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "h2");
+        final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "db");
         
         /*
          * DAOs
@@ -34,8 +32,8 @@ public class MeansApplication extends Application<MeansConfiguration>
         /*
          * Add Resources
          */
-        environment.jersey().register(new TestsResource());
-        environment.jersey().register(new TestsByCategory());
+//        environment.jersey().register(new TestsResource());
+//        environment.jersey().register(new TestsByCategory());
         environment.jersey().register(new QuestionsResource(qDao));
         
         /*
