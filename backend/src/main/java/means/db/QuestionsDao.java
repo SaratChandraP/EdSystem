@@ -1,5 +1,7 @@
 package means.db;
 
+import java.util.Set;
+
 import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapper;
@@ -14,6 +16,6 @@ public interface QuestionsDao {
 	public Questions retrieveById(@Bind("id") String id);
 
 	@SqlQuery("select * from questions")
-	public Questions retrieveAll();
+	public Set<Questions> retrieveAll();
 
 }

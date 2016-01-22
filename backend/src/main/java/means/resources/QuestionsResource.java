@@ -1,5 +1,7 @@
 package means.resources;
 
+import java.util.Set;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -24,8 +26,8 @@ public class QuestionsResource {
 	}
 	
 	@GET
-    public Questions getAll() {
-        Questions questionsAll = qDao.retrieveAll();
+    public Set<Questions> getAll() {
+        Set<Questions> questionsAll = qDao.retrieveAll();
         return questionsAll;
     }
 
