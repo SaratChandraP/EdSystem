@@ -44,42 +44,62 @@
 
 <div class="container" ng-controller="questionsCtrl">
 
-        <div class="col-sm-2 sidenav">
-        </div>
-        <form class="form-horizontal row">
+    <div class="col-sm-2 sidenav">
+    </div>
+    <form class="form-horizontal row">
 
         <fieldset>
             <!-- Form Name -->
             <legend align="top">Test 1</legend>
 
-            {{c}}
 
             <div class="control-group">
-            <!-- Multiple Radios (inline) -->
+                <!-- Multiple Radios (inline) -->
+                <div ng-controller="questionsCtrl">
+                    <!--<div> <label> {{(questions[i].id)}} {{questions[i].question}} </label></div>-->
+                    <!--<div>-->
+                        <!--<div>-->
+                        <!--&lt;!&ndash;<label class="radio">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<input value="{{questions[i].option1}}" type="radio"> {{questions.option1}}&ndash;&gt;-->
+                        <!--&lt;!&ndash;</label>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<label class="radio">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<input value="{{questions[i].option2}}" type="radio"> {{questions.option2}}&ndash;&gt;-->
+                        <!--&lt;!&ndash;</label>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<label class="radio">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<input value="{{questions[i].option3}}" type="radio"> {{questions.option3}}&ndash;&gt;-->
+                        <!--&lt;!&ndash;</label>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<label class="radio">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<input value="{{questions[i].option4}}" type="radio"> {{questions.option4}}&ndash;&gt;-->
+                        <!--&lt;!&ndash;</label>&ndash;&gt;-->
+                        <!--<input type="radio"> {{questions[i].option1}} <br>-->
+                        <!--<input type="radio"> {{questions[i].option2}} <br>-->
+                        <!--<input type="radio"> {{questions[i].option3}} <br>-->
+                        <!--<input type="radio"> {{questions[i].option4}} <br>-->
+                        <!--</div>-->
+
                 <div class="control-group">
-                    <label class="control-label" for="question{{questionnum}}">  {{questionSingle.id}}. {{questionSingle.question}} </label>
+                    <label class="control-label">  {{questions[i].id}}. {{questions[i].question}} </label>
                     <div class="controls">
-                        <label class="radio" for="question{{questionnum}}-1">
-                            <input name="question{{questionnum}}-1" id="question{{questionnum}}-1" value="{{questionSingle.option2}}" type="radio"> {{questionSingle.option1}}
+                        <label class="radio" >
+                            <input name="question{{questions[i].question}}" id="question{{questionnum}}-1" value="{{questions[i].option1}}" type="radio"> {{questions[i].option1}}
                         </label>
 
-                        <label class="radio" for="question{{questionnum}}-2">
-                            <input name="question{{questionnum}}-2" id="question{{questionnum}}-2" value="{{questionSingle.option2}}" type="radio"> {{questionSingle.option2}}
+                        <label class="radio" >
+                            <input name="question{{questions[i].question}}" id="question{{questionnum}}-2" value="{{questions[i].option2}}" type="radio"> {{questions[i].option2}}
                         </label>
 
-                        <label class="radio" for="question{{questionnum}}-3">
-                            <input name="question{{questionnum}}-3" id="question{{questionnum}}-3" value="{{questionSingle.option3}}" type="radio"> {{questionSingle.option3}}
+                        <label class="radio" >
+                            <input name="question{{questions[i].question}}" id="question{{questions[1]}}-3" value="{{questions[i].option3}}" type="radio"> {{questions[i].option3}}
                         </label>
-
-                        <label class="radio" for="question{{questionnum}}-4">
-                            <input name="question{{questionnum}}-4" id="question{{questionnum}}-4" value="{{questionSingle.option4}}" type="radio"> {{questionSingle.option4}}
+                        <label class="radio" >
+                            <input name="question{{questions[i].question}}" id="question{{questions[1]}}-4" value="{{questions[i].option4}}" type="radio"> {{questions[i].option4}}
                         </label>
                     </div>
                 </div>
                 <br>
                 <button id="next" ng-click="myFunction()"  class="btn btn-primary">Next Question</button>
                 <br>
-            </div>
+            <!--</div>-->
 
             <!-- Textarea -->
             <!--<div class="control-group">
@@ -89,12 +109,12 @@
                 </div>
             </div>-->
 
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="submitTest"></label>
-                <div class="col-md-4">
-                    <button id="submitTest"  class="btn btn-primary">Submit</button>
-                </div>
-            </div>
+            <!--<div class="form-group">-->
+            <!--<label class="col-md-4 control-label" for="submitTest"></label>-->
+            <!--<div class="col-md-4">-->
+            <!--<button id="submitTest"  class="btn btn-primary">Submit</button>-->
+            <!--</div>-->
+            <!--</div>-->
 
         </fieldset>
     </form>
@@ -103,10 +123,10 @@
 
 
 <!--<footer class="navbar navbar-default navbar-fixed-bottom">-->
-    <!--&lt;!&ndash;<div class="container-fluid text-center"></div>&ndash;&gt;-->
-    <!--<div class="container text-center container-fluid">-->
-        <!--© Team M.E.A.N.S, Education System (2015-2016)-->
-    <!--</div>-->
+<!--&lt;!&ndash;<div class="container-fluid text-center"></div>&ndash;&gt;-->
+<!--<div class="container text-center container-fluid">-->
+<!--© Team M.E.A.N.S, Education System (2015-2016)-->
+<!--</div>-->
 <!--</footer>-->
 </body>
 </html>
