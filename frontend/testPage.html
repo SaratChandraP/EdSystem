@@ -53,37 +53,42 @@
             <legend align="top">Test 1</legend>
 
 
-            <div class="control-group">
-                <!-- Multiple Radios (inline) -->
-                <div ng-controller="questionsCtrl">
-                    <!--<div> <label> {{(questions[i].id)}} {{questions[i].question}} </label></div>-->
-                    <!--<div>-->
-                        <!--<div>-->
-                        <!--&lt;!&ndash;<label class="radio">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<input value="{{questions[i].option1}}" type="radio"> {{questions.option1}}&ndash;&gt;-->
-                        <!--&lt;!&ndash;</label>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<label class="radio">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<input value="{{questions[i].option2}}" type="radio"> {{questions.option2}}&ndash;&gt;-->
-                        <!--&lt;!&ndash;</label>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<label class="radio">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<input value="{{questions[i].option3}}" type="radio"> {{questions.option3}}&ndash;&gt;-->
-                        <!--&lt;!&ndash;</label>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<label class="radio">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<input value="{{questions[i].option4}}" type="radio"> {{questions.option4}}&ndash;&gt;-->
-                        <!--&lt;!&ndash;</label>&ndash;&gt;-->
-                        <!--<input type="radio"> {{questions[i].option1}} <br>-->
-                        <!--<input type="radio"> {{questions[i].option2}} <br>-->
-                        <!--<input type="radio"> {{questions[i].option3}} <br>-->
-                        <!--<input type="radio"> {{questions[i].option4}} <br>-->
-                        <!--</div>-->
+            <!--<div class="control-group">-->
+            <!-- Multiple Radios (inline) -->
+            <div class="control-group" ng-controller="questionsCtrl">
+                <!--<div> <label> {{(questions[i].id)}} {{questions[i].question}} </label></div>-->
+                <!--<div>-->
+                <!--<div>-->
+                <!--&lt;!&ndash;<label class="radio">&ndash;&gt;-->
+                <!--&lt;!&ndash;<input value="{{questions[i].option1}}" type="radio"> {{questions.option1}}&ndash;&gt;-->
+                <!--&lt;!&ndash;</label>&ndash;&gt;-->
+                <!--&lt;!&ndash;<label class="radio">&ndash;&gt;-->
+                <!--&lt;!&ndash;<input value="{{questions[i].option2}}" type="radio"> {{questions.option2}}&ndash;&gt;-->
+                <!--&lt;!&ndash;</label>&ndash;&gt;-->
+                <!--&lt;!&ndash;<label class="radio">&ndash;&gt;-->
+                <!--&lt;!&ndash;<input value="{{questions[i].option3}}" type="radio"> {{questions.option3}}&ndash;&gt;-->
+                <!--&lt;!&ndash;</label>&ndash;&gt;-->
+                <!--&lt;!&ndash;<label class="radio">&ndash;&gt;-->
+                <!--&lt;!&ndash;<input value="{{questions[i].option4}}" type="radio"> {{questions.option4}}&ndash;&gt;-->
+                <!--&lt;!&ndash;</label>&ndash;&gt;-->
+                <!--<input type="radio"> {{questions[i].option1}} <br>-->
+                <!--<input type="radio"> {{questions[i].option2}} <br>-->
+                <!--<input type="radio"> {{questions[i].option3}} <br>-->
+                <!--<input type="radio"> {{questions[i].option4}} <br>-->
+                <!--</div>-->
+                <p ng-hide="showme"> Enter your username to begin the test</p>
+                <div class="form-control" ng-model="user" ng-hide="showme"><b>Username:</b><input type="text"><br></div><br>
 
-                <div class="control-group">
+                <button class="btn btn-primary" id="next" ng-click="showme=true" ng-hide="showme"> Start test</button>
+
+
+                <div class="control-group" ng-show="showme==true" >
+
                     <label class="control-label">  {{questions[i].id}}. {{questions[i].question}} </label>
                     <div class="controls">
                         <label class="radio" >
                             <input name="question{{questions[i].question}}" id="question{{questionnum}}-1" value="{{questions[i].option1}}" type="radio"> {{questions[i].option1}}
                         </label>
-
                         <label class="radio" >
                             <input name="question{{questions[i].question}}" id="question{{questionnum}}-2" value="{{questions[i].option2}}" type="radio"> {{questions[i].option2}}
                         </label>
@@ -95,28 +100,40 @@
                             <input name="question{{questions[i].question}}" id="question{{questions[1]}}-4" value="{{questions[i].option4}}" type="radio"> {{questions[i].option4}}
                         </label>
                     </div>
+
+
                 </div>
                 <br>
-                <button id="next" ng-click="myFunction()"  class="btn btn-primary">Next Question</button>
+                <button id="next" ng-click="myFunction()" ng-show="showme"   class="btn btn-primary">Next Question</button>
                 <br>
-            <!--</div>-->
-
-            <!-- Textarea -->
-            <!--<div class="control-group">
-                <label class="control-label" for="question2">2.Which reasons you are not totally satisfied, or unsatisfied about your cooperation with GET WIRELESS?</label>
-                <div class="controls">
-                    <textarea id="question2" name="question2"></textarea>
+                <div ng-if="{{questions[i].id}}=={{i}}">
+                    <div ng-show="showme">
+                        <p>You have now reached the end of the test! Thank you for taking the test</p>
+                        <button id="submit" class="btn btn-primary">Submit</button>
+                    </div>
                 </div>
-            </div>-->
+                <!--</div>-->
 
-            <!--<div class="form-group">-->
-            <!--<label class="col-md-4 control-label" for="submitTest"></label>-->
-            <!--<div class="col-md-4">-->
-            <!--<button id="submitTest"  class="btn btn-primary">Submit</button>-->
-            <!--</div>-->
-            <!--</div>-->
+
+
+                <!-- Textarea -->
+                <!--<div class="control-group">
+                    <label class="control-label" for="question2">2.Which reasons you are not totally satisfied, or unsatisfied about your cooperation with GET WIRELESS?</label>
+                    <div class="controls">
+                        <textarea id="question2" name="question2"></textarea>
+                    </div>
+                </div>-->
+
+                <!--<div class="form-group">-->
+                <!--<label class="col-md-4 control-label" for="submitTest"></label>-->
+                <!--<div class="col-md-4">-->
+                <!--<button id="submitTest"  class="btn btn-primary">Submit</button>-->
+                <!--</div>-->
+                <!--</div>-->
+            </div>
 
         </fieldset>
+
     </form>
 
 </div>
@@ -130,3 +147,4 @@
 <!--</footer>-->
 </body>
 </html>
+
