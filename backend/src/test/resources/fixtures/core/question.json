@@ -1,0 +1,8 @@
+{
+	id: 1,
+	question: "What is your name?",
+	option1: "Sarat",
+	option2: "Navneet",
+	option3: "xyz",
+	option4: "abc"
+}

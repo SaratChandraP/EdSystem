@@ -26,8 +26,11 @@ dependencies {
 	compile 'io.dropwizard:dropwizard-core:0.8.2'
 	compile 'io.dropwizard:dropwizard-jdbi:0.8.2'
 	compile 'io.dropwizard:dropwizard-assets:0.8.2'
+	compile 'io.dropwizard:dropwizard-testing:0.8.2'
 	compile 'com.bazaarvoice.dropwizard:dropwizard-configurable-assets-bundle:0.2.2'
 	compile 'com.h2database:h2:1.4.190'
+	compile 'org.mockito:mockito-all:1.9.5'
+
 	//compile 'org.jdbi:jdbi:2.10.1'
 	//compile 'org.flywaydb:flyway-gradle-plugin:3.2.1'
 	
